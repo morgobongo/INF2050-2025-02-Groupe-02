@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CheckStyle-IDEA" serialisationVersion="2">
+<<<<<<< HEAD
     <checkstyleVersion>10.24.0</checkstyleVersion>
+=======
+    <checkstyleVersion>10.23.0</checkstyleVersion>
+>>>>>>> 65b3b82 (Ajout inscriptionImpl + InscriptionTest)
     <scanScope>JavaOnly</scanScope>
     <option name="thirdPartyClasspath" />
     <option name="activeLocationIds" />
