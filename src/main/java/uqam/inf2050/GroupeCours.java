@@ -1,3 +1,5 @@
+package uqam.inf2050;
+
 public class GroupeCours {
 
     private Cours cours;
