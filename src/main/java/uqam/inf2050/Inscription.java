@@ -1,3 +1,5 @@
+package uqam.inf2050;
+
 import java.time.LocalDate;
 
 public class Inscription {
