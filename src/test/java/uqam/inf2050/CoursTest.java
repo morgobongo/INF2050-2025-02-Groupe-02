@@ -1,4 +1,4 @@
-package test.java.uqam.inf2050;
+package uqam.inf2050;
 
 //Librairies File
 import java.io.File;
