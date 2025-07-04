@@ -1,20 +1,14 @@
-package uqam.inf2050;
+package test.java.uqam.inf2050;
 
 //Librairies File
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.FileWriter;
 
 //Librairies jUnit
-import org.junit.Test;
 import org.junit.BeforeClass;
 import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.After;
-import org.junit.Assert;
 
 
 public class CoursTest {
