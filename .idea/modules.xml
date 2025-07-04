@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/TP2-2050-gestion-inscriptions.iml" filepath="$PROJECT_DIR$/TP2-2050-gestion-inscriptions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/TP2-2050-gestion-inscriptions.iml" filepath="$PROJECT_DIR$/.idea/TP2-2050-gestion-inscriptions.iml" />
     </modules>
   </component>
 </project>
