@@ -10,11 +10,9 @@
     <version>1.0-SNAPSHOT</version>
 
     <name>TP2-2050-gestion-inscriptions</name>
-    <url>http://maven.apache.org</url>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <maven.compiler.release>21</maven.compiler.release>
     </properties>
 
     <dependencies>
@@ -34,6 +32,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
+                <configuration>
+                    <release>${maven.compiler.release}</release>
+                </configuration>
             </plugin>
 
             <!-- Surefire Plugin (exécution des tests) -->
