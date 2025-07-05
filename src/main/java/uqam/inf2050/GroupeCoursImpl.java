@@ -12,7 +12,7 @@ public class GroupeCoursImpl {
         GroupeCours groupeCours  = new GroupeCours();
 
         for (GroupeCours g : groupesCours) {
-            if (g.getCours().equals(cours) && g.getEnseignant().equals(enseignant)) {
+            if (g.getCours().getSigle().equals(cours) && g.getEnseignant().equals(enseignant)) {
                 groupeCours = g;
             }
         }
