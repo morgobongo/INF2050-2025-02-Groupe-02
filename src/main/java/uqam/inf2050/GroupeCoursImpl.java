@@ -8,11 +8,11 @@ public class GroupeCoursImpl {
 
     public void addGroupeCours(GroupeCours e) {groupesCours.add(e);}
 
-    public GroupeCours getGroupeCours(String cours) {
+    public GroupeCours getGroupeCours(String cours, Enseignant enseignant) {
         GroupeCours groupeCours  = new GroupeCours();
 
         for (GroupeCours g : groupesCours) {
-            if (g.getCours().equals(cours)) {
+            if (g.getCours().equals(cours) && g.getEnseignant().equals(enseignant)) {
                 groupeCours = g;
             }
         }
