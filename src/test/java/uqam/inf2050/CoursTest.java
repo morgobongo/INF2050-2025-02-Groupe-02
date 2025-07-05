@@ -4,7 +4,6 @@ package uqam.inf2050;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.FileWriter;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -33,7 +32,7 @@ public class CoursTest {
         try {
 
             //Setup des etudiants
-            pWriter = new PrintWriter((new FileWriter("EtudiantsTest.csv")));
+            pWriter = new PrintWriter((new PrintWriter("EtudiantsTest.csv")));
             pWriter.println("Code Permanent;Nom;Prenom;Code Programme");
             pWriter.println("ANDA12345;Andrews;Archie;123");
             pWriter.println("VASA65432;Vasquez;Alexandra;456");
@@ -42,7 +41,7 @@ public class CoursTest {
             pWriter.close();
 
             //Setup des cours
-            pWriter = new PrintWriter((new FileWriter("CoursTest.csv")));
+            pWriter = new PrintWriter((new PrintWriter("CoursTest.csv")));
             pWriter.println("Sigle;Titre;Description;Nombre Credits");
             pWriter.println("INF1070;Linux;Man moi ca;1");
             pWriter.println("MAT4681;Statistiques;Probablement probabiliste;2");
@@ -51,7 +50,7 @@ public class CoursTest {
             pWriter.close();
 
             //Setup des enseignants
-            pWriter = new PrintWriter((new FileWriter("EnseignantsTest.csv")));
+            pWriter = new PrintWriter((new PrintWriter("EnseignantsTest.csv")));
             pWriter.println("Code d'enseignant;Nom;Prenom");
             pWriter.println("1111;Poulin;Julien");
             pWriter.println("2222;Martin;Pauline");
@@ -60,7 +59,7 @@ public class CoursTest {
             pWriter.close();
 
             //Setup des sessions
-            pWriter = new PrintWriter((new FileWriter("SessionsTest.csv")));
+            pWriter = new PrintWriter((new PrintWriter("SessionsTest.csv")));
             pWriter.println("Code de sessions;Date de debut;Date de fin");
             pWriter.println("12024;2024,1,1;2024,4,30");
             pWriter.println("22024;2024,9,1;2024,12,31");
@@ -72,7 +71,7 @@ public class CoursTest {
             pWriter.close();
 
             //Setup des groupes cours
-            pWriter = new PrintWriter((new FileWriter("GroupesCoursTest.csv")));
+            pWriter = new PrintWriter((new PrintWriter("GroupesCoursTest.csv")));
             pWriter.println("Cours;Enseignant;Session;Maximum Inscription;Local");
 
             pWriter.println("INF1070;1111;H2024;25;R111");
@@ -91,7 +90,7 @@ public class CoursTest {
             pWriter.close();
 
             //Setup des inscriptions
-            pWriter = new PrintWriter((new FileWriter("InscriptionsTest.csv")));
+            pWriter = new PrintWriter((new PrintWriter("InscriptionsTest.csv")));
             pWriter.println("Etudiant;GroupeCours;Date d'inscription;Date d'abandon;Note");
 
             pWriter.println("ANDA12345;INF1070,1111;2024,1,1;2024,3,1;50");
