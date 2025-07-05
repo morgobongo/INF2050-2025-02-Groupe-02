@@ -77,9 +77,10 @@ public class InscriptionImpl {
         return meilleurProgramme;
     }
 
-    // 5. Calculer le nombre total d'étudiants inscrits à un programme durant les trois sessions (automne, hiver, été) de l'année d'étude (par exemple 2024-2025)
-    public Number getNombreEtudiantsInscritsProgrammeTroisSessions(Number codeProgramme, Number anneeEtude) {
-
+    // Calculer le nombre total d'étudiants inscrits à un programme durant
+    // les trois sessions (automne, hiver, été) de l'année d'étude
+    public Number getNombreEtudiantsInscritsProgrammeTroisSessions
+            (Number codeProgramme, Number anneeEtude) {
         LocalDate dateSessionAutomne = LocalDate.of(anneeEtude.intValue(), 9, 1);
         LocalDate dateSessionHiver = LocalDate.of(anneeEtude.intValue(), 1, 1);
         LocalDate dateSessionEte = LocalDate.of(anneeEtude.intValue(), 5, 1);
@@ -99,7 +100,15 @@ public class InscriptionImpl {
     }
 
 
-// 6. Calculer le nombre total d'étudiants inscrits à un programme durant les trois sessions (automne, hiver, été) de l'année d'étude (par exemple 2024-2025)
-    public Number comparerNombreEtudiantsInscritsProgrammeDeuxAnneesConsecutives(Number codeProgramme, Number annee1, Number annee2);
+    //Comparer deux années consécutives (par exemple 2023-2024 et 2024-2025) en termes du nombre
+    //d'inscriptions à un programme
+    public Number comparerNombreEtudiantsInscritsProgrammeDeuxAnneesConsecutives(Number codeProgramme, Number annee1, Number annee2) {
+        Number comparaison = 0;
+
+        comparaison = getNombreEtudiantsInscritsProgrammeTroisSessions(codeProgramme, annee2).intValue() -
+            getNombreEtudiantsInscritsProgrammeTroisSessions(codeProgramme, annee1).intValue();
+
+        return  comparaison;
+    }
 
 }
