@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InscriptionImpl {
-    private final List<Inscription> inscriptions = new ArrayList<>();
+    private List<Inscription> inscriptions = new ArrayList<>();
 
     // Méthode pour ajouter une inscription à la liste
     public void addInscription(Inscription ins) {
@@ -76,4 +76,30 @@ public class InscriptionImpl {
         }
         return meilleurProgramme;
     }
+
+    // 5. Calculer le nombre total d'étudiants inscrits à un programme durant les trois sessions (automne, hiver, été) de l'année d'étude (par exemple 2024-2025)
+    public Number getNombreEtudiantsInscritsProgrammeTroisSessions(Number codeProgramme, Number anneeEtude) {
+
+        LocalDate dateSessionAutomne = LocalDate.of(anneeEtude.intValue(), 9, 1);
+        LocalDate dateSessionHiver = LocalDate.of(anneeEtude.intValue(), 1, 1);
+        LocalDate dateSessionEte = LocalDate.of(anneeEtude.intValue(), 5, 1);
+
+        Number nombreEtudiantsInscrits = 0;
+
+        for (Inscription i:inscriptions) {
+            if(i.getEtudiant().getCodeProgramme().equals(codeProgramme) &&
+                    (i.getGroupe().getSession().getDateDebut().isEqual(dateSessionAutomne) ||
+                    i.getGroupe().getSession().getDateDebut().isEqual(dateSessionHiver) ||
+                    i.getGroupe().getSession().getDateDebut().isEqual(dateSessionEte))) {
+                nombreEtudiantsInscrits = nombreEtudiantsInscrits.intValue() + 1;
+            }
+        }
+
+        return nombreEtudiantsInscrits;
+    }
+
+
+// 6. Calculer le nombre total d'étudiants inscrits à un programme durant les trois sessions (automne, hiver, été) de l'année d'étude (par exemple 2024-2025)
+    public Number comparerNombreEtudiantsInscritsProgrammeDeuxAnneesConsecutives(Number codeProgramme, Number annee1, Number annee2);
+
 }

@@ -21,7 +21,7 @@ public class SessionImpl {
         return session;
     }
 
-    public Session getSessionDateDebut(LocalDate dateDebut) {
+    public Session getSessionDate(LocalDate dateDebut) {
         Session session = new Session();
 
         for (Session s : sessions) {
