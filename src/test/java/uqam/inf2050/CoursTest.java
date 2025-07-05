@@ -378,12 +378,12 @@ public class CoursTest {
         }
 
         //Destruction des listes
-        etudiants = null;
-        cours = null;
-        enseignants = null;
-        groupesCours = null;
-        inscriptions = null;
-        sessions = null;
+        etudiants = new EtudiantImpl();
+        cours = new CoursImpl();
+        enseignants = new EnseignantImpl();
+        groupesCours = new GroupeCoursImpl();
+        inscriptions = new InscriptionImpl();
+        sessions = new SessionImpl();
     }
 
     @AfterClass
