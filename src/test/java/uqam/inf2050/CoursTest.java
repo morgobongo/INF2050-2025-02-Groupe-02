@@ -74,19 +74,19 @@ public class CoursTest {
             pWriter = new PrintWriter((new PrintWriter("GroupesCoursTest.csv")));
             pWriter.println("Cours;Enseignant;Session;Maximum Inscription;Local");
 
-            pWriter.println("INF1070;1111;H2024;25;R111");
-            pWriter.println("INF2171;4444;H2024;20;R222");
+            pWriter.println("INF1070;1111;12024;25;R111");
+            pWriter.println("INF2171;4444;12024;20;R222");
 
-            pWriter.println("MAT4681;2222;A2024;15;S111");
+            pWriter.println("MAT4681;2222;22024;15;S111");
 
-            pWriter.println("INF1132;3333;E2024;30;S222");
+            pWriter.println("INF1132;3333;32024;30;S222");
 
-            pWriter.println("INF2171;4444;H2025;35;T111");
+            pWriter.println("INF2171;4444;12025;35;T111");
 
-            pWriter.println("INF1070;3333;A2025;23;T222");
-            pWriter.println("INF2171;1111;A2025;19;U111");
+            pWriter.println("INF1070;3333;22025;23;T222");
+            pWriter.println("INF2171;1111;22025;19;U111");
 
-            pWriter.println("MAT4681;2222;E2025;32;U222");
+            pWriter.println("MAT4681;2222;32025;32;U222");
             pWriter.close();
 
             //Setup des inscriptions
