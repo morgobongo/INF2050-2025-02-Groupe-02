@@ -277,7 +277,7 @@ public class CoursTest {
                 }
 
                 //Creation groupes cours
-                fluxConnecteur = new FileReader("GroupeCoursTest.csv");
+                fluxConnecteur = new FileReader("GroupesCoursTest.csv");
                 fluxTampon = new BufferedReader(fluxConnecteur);
                 fluxTampon.readLine();
                 GroupeCours groupeCours = new GroupeCours();
