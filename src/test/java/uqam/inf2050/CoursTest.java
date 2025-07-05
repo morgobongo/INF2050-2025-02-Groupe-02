@@ -169,13 +169,14 @@ public class CoursTest {
                 } else {
                     System.out.println("Données incomplètes");
                 }
+            }
 
-                //Creation cours
-                fluxConnecteur = new FileReader("CoursTest.csv");
-                fluxTampon = new BufferedReader(fluxConnecteur);
-                fluxTampon.readLine();
+            //Creation cours
+            fluxConnecteur = new FileReader("CoursTest.csv");
+            fluxTampon = new BufferedReader(fluxConnecteur);
+            fluxTampon.readLine();
 
-                while (fluxTampon.ready()) {
+            while (fluxTampon.ready()) {
                     //Découpage de la ligne du fichier csv
                     uneLigne = fluxTampon.readLine();
                     attributs = uneLigne.split(";");
@@ -251,8 +252,8 @@ public class CoursTest {
                     if (attributs.length == 3) {
                         //Récupération des informations
                         byte i = 0;
-                        Session session = new Session();
                         String[] dates;
+                        Session session = new Session();
 
                         session.setCodeSession(Integer.parseInt(attributs[i].trim()));
                         i++;
@@ -354,7 +355,6 @@ public class CoursTest {
                         System.out.println("Données incomplètes");
                     }
                 }
-            }
         } catch (FileNotFoundException e) {
             System.out.println ("Erreur: Fichier non trouvé");
         } catch (IOException e) {
