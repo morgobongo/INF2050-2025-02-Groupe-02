@@ -84,19 +84,20 @@ public class InscriptionImpl {
         LocalDate dateSessionAutomne = LocalDate.of(anneeEtude.intValue(), 9, 1);
         LocalDate dateSessionHiver = LocalDate.of(anneeEtude.intValue(), 1, 1);
         LocalDate dateSessionEte = LocalDate.of(anneeEtude.intValue(), 5, 1);
-
-        Number nombreEtudiantsInscrits = 0;
+        ArrayList<Etudiant> etudiants = new ArrayList<>();
 
         for (Inscription i:inscriptions) {
             if(i.getEtudiant().getCodeProgramme().equals(codeProgramme) &&
                     (i.getGroupe().getSession().getDateDebut().isEqual(dateSessionAutomne) ||
                     i.getGroupe().getSession().getDateDebut().isEqual(dateSessionHiver) ||
                     i.getGroupe().getSession().getDateDebut().isEqual(dateSessionEte))) {
-                nombreEtudiantsInscrits = nombreEtudiantsInscrits.intValue() + 1;
+                if(!etudiants.contains(i.getEtudiant())) {
+                    etudiants.add(i.getEtudiant());
+                }
             }
         }
 
-        return nombreEtudiantsInscrits;
+        return etudiants.size();
     }
 
 
