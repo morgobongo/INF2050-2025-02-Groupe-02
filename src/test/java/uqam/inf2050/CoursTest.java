@@ -137,7 +137,6 @@ public class CoursTest {
             fluxConnecteur = new FileReader ("EtudiantsTest.csv");
             fluxTampon = new BufferedReader (fluxConnecteur);
             fluxTampon.readLine();
-            Etudiant etudiant = new Etudiant();
 
             while (fluxTampon.ready()) {
                 //Découpage de la ligne du fichier csv
@@ -148,6 +147,7 @@ public class CoursTest {
                 if (attributs.length == 4) {
                     //Récupération des informations
                     byte i = 0;
+                    Etudiant etudiant = new Etudiant();
 
                     etudiant.setCodePermanent(attributs[i].trim());
                     i++;
@@ -166,14 +166,14 @@ public class CoursTest {
                 } else {
                     System.out.println("Données incomplètes");
                 }
+            }
 
-                //Creation cours
-                fluxConnecteur = new FileReader("CoursTest.csv");
-                fluxTampon = new BufferedReader(fluxConnecteur);
-                fluxTampon.readLine();
-                Cours cour = new Cours();
+            //Creation cours
+            fluxConnecteur = new FileReader("CoursTest.csv");
+            fluxTampon = new BufferedReader(fluxConnecteur);
+            fluxTampon.readLine();
 
-                while (fluxTampon.ready()) {
+            while (fluxTampon.ready()) {
                     //Découpage de la ligne du fichier csv
                     uneLigne = fluxTampon.readLine();
                     attributs = uneLigne.split(";");
@@ -182,6 +182,7 @@ public class CoursTest {
                     if (attributs.length == 4) {
                         //Récupération des informations
                         byte i = 0;
+                        Cours cour = new Cours();
 
                         cour.setSigle(attributs[i].trim());
                         i++;
@@ -206,7 +207,6 @@ public class CoursTest {
                 fluxConnecteur = new FileReader("EnseignantsTest.csv");
                 fluxTampon = new BufferedReader(fluxConnecteur);
                 fluxTampon.readLine();
-                Enseignant enseignant = new Enseignant();
 
                 while (fluxTampon.ready()) {
                     //Découpage de la ligne du fichier csv
@@ -217,6 +217,7 @@ public class CoursTest {
                     if (attributs.length == 3) {
                         //Récupération des informations
                         byte i = 0;
+                        Enseignant enseignant = new Enseignant();
 
                         enseignant.setCodeEnseignant(attributs[i].trim());
                         i++;
@@ -238,7 +239,6 @@ public class CoursTest {
                 fluxConnecteur = new FileReader("SessionsTest.csv");
                 fluxTampon = new BufferedReader(fluxConnecteur);
                 fluxTampon.readLine();
-                Session session = new Session();
 
                 while (fluxTampon.ready()) {
                     //Découpage de la ligne du fichier csv
@@ -250,6 +250,7 @@ public class CoursTest {
                         //Récupération des informations
                         byte i = 0;
                         String[] dates;
+                        Session session = new Session();
 
                         session.setCodeSession(Integer.parseInt(attributs[i].trim()));
                         i++;
@@ -275,7 +276,6 @@ public class CoursTest {
                 fluxConnecteur = new FileReader("GroupesCoursTest.csv");
                 fluxTampon = new BufferedReader(fluxConnecteur);
                 fluxTampon.readLine();
-                GroupeCours groupeCours = new GroupeCours();
 
                 while (fluxTampon.ready()) {
                     //Découpage de la ligne du fichier csv
@@ -286,6 +286,7 @@ public class CoursTest {
                     if (attributs.length == 5) {
                         //Récupération des informations
                         byte i = 0;
+                        GroupeCours groupeCours = new GroupeCours();
 
                         groupeCours.setCours(cours.getcours(attributs[i].trim()));
                         i++;
@@ -313,7 +314,6 @@ public class CoursTest {
                 fluxConnecteur = new FileReader("InscriptionsTest.csv");
                 fluxTampon = new BufferedReader(fluxConnecteur);
                 fluxTampon.readLine();
-                Inscription inscription = new Inscription();
 
                 while (fluxTampon.ready()) {
                     //Découpage de la ligne du fichier csv
@@ -326,6 +326,7 @@ public class CoursTest {
                         byte i = 0;
                         String[] groupeCoursInsc;
                         String[] dates;
+                        Inscription inscription = new Inscription();
 
                         inscription.setEtudiant(etudiants.getEtudiant(attributs[i].trim()));
                         i++;
@@ -351,7 +352,6 @@ public class CoursTest {
                         System.out.println("Données incomplètes");
                     }
                 }
-            }
         } catch (FileNotFoundException e) {
             System.out.println ("Erreur: Fichier non trouvé");
         } catch (IOException e) {
