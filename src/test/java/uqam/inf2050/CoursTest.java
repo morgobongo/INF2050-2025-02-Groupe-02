@@ -376,7 +376,7 @@ public class CoursTest {
 
     @Test
     public void testComparaisonDeuxAnneesInscriptionsProg123() {
-        assertEquals("Le test de comparaison de deux annees a echoue", 1,
+        assertEquals("Le test de comparaison de deux annees a echoue", -1,
                 inscriptions.comparerNombreEtudiantsInscritsProgrammeDeuxAnneesConsecutives(123,2024,2025));
     }
 

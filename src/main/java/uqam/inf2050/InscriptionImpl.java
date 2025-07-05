@@ -81,18 +81,15 @@ public class InscriptionImpl {
     // les trois sessions (automne, hiver, été) de l'année d'étude
     public Number getNombreEtudiantsInscritsProgrammeTroisSessions
             (Number codeProgramme, Number anneeEtude) {
-        LocalDate dateSessionAutomne = LocalDate.of(anneeEtude.intValue(), 9, 1);
         LocalDate dateSessionHiver = LocalDate.of(anneeEtude.intValue(), 1, 1);
-        LocalDate dateSessionEte = LocalDate.of(anneeEtude.intValue(), 5, 1);
         ArrayList<Etudiant> etudiants = new ArrayList<>();
 
         for (Inscription i:inscriptions) {
-            if(i.getEtudiant().getCodeProgramme().equals(codeProgramme) &&
-                    (i.getGroupe().getSession().getDateDebut().isEqual(dateSessionAutomne) ||
-                    i.getGroupe().getSession().getDateDebut().isEqual(dateSessionHiver) ||
-                    i.getGroupe().getSession().getDateDebut().isEqual(dateSessionEte))) {
-                if(!etudiants.contains(i.getEtudiant())) {
-                    etudiants.add(i.getEtudiant());
+            if(i.getEtudiant().getCodeProgramme().equals(codeProgramme)
+            && (i.getDateInscription().isEqual(dateSessionHiver) || i.getDateInscription().isAfter(dateSessionHiver))
+            && i.getDateInscription().isBefore(dateSessionHiver.plusYears(1))) {
+                if (!etudiants.contains(i.getEtudiant())) {
+                etudiants.add(i.getEtudiant());
                 }
             }
         }
