@@ -114,10 +114,10 @@ public class CoursTest {
             pWriter.println("VASA65432;INF1070,3333;2025,9,1;2024,10,1;40");
             pWriter.println("FRYP78910;INF1070,3333;2025,9,2;2024,10,2;42");
 
-                        pWriter.println("FRYP78910;INF2171,1111;2025,9,2;2024,10,2;32");
+            pWriter.println("FRYP78910;INF2171,1111;2025,9,2;2024,10,2;32");
 
             pWriter.println("VASA65432;MAT4681,2222;2025,6,1;2025,7,1;20");
-                        pWriter.println("FRYP78910;MAT4681,2222;2025,6,3;2025,7,3;24");
+            pWriter.println("FRYP78910;MAT4681,2222;2025,6,3;2025,7,3;24");
             pWriter.println("BLAD11121;MAT4681,2222;2025,6,4;2025,7,4;26");
             pWriter.close();
 
