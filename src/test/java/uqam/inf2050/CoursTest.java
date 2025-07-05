@@ -10,10 +10,8 @@ import java.io.FileReader;
 import java.time.LocalDate;
 
 //Librairies jUnit
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.AfterClass;
+import org.junit.*;
+import static org.junit.Assert.*;
 
 
 public class CoursTest {
@@ -110,9 +108,9 @@ public class CoursTest {
             pWriter.println("BLAD11121;INF1132,3333;2024,6,1;2024,7,1;80");
             pWriter.println("VASA65432;INF1132,3333;2024,6,2;2024,7,2;82");
 
-            pWriter.println("ANDA12345;INF21714444;2025,1,1;2025,3,1;90");
-            pWriter.println("BLAD11121;INF21714444;2025,1,2;2025,3,2;92");
-            pWriter.println("VASA65432;INF21714444;2025,1,3;2025,3,3;94");
+            pWriter.println("ANDA12345;INF2171,4444;2025,1,1;2025,3,1;90");
+            pWriter.println("BLAD11121;INF2171,4444;2025,1,2;2025,3,2;92");
+            pWriter.println("VASA65432;INF2171,4444;2025,1,3;2025,3,3;94");
 
             pWriter.println("VASA65432;INF1070,3333;2025,9,1;2024,10,1;40");
             pWriter.println("FRYP78910;INF1070,3333;2025,9,2;2024,10,2;42");
@@ -364,6 +362,11 @@ public class CoursTest {
         } catch (NumberFormatException e) {
             System.out.println("Format invalide de donnée");
         }
+    }
+
+    @Test
+    public void testCours() {
+        assertEquals(0,0);
     }
 
     @After
