@@ -111,10 +111,10 @@ public class CoursTest {
             pWriter.println("BLAD11121;INF2171,4444;2025,1,2;2025,3,2;92");
             pWriter.println("VASA65432;INF2171,4444;2025,1,3;2025,3,3;94");
 
-            pWriter.println("VASA65432;INF1070,3333;2025,9,1;2024,10,1;40");
-            pWriter.println("FRYP78910;INF1070,3333;2025,9,2;2024,10,2;42");
+            pWriter.println("VASA65432;INF1070,3333;2025,9,1;2025,10,1;40");
+            pWriter.println("FRYP78910;INF1070,3333;2025,9,2;2025,10,2;42");
 
-            pWriter.println("FRYP78910;INF2171,1111;2025,9,2;2024,10,2;32");
+            pWriter.println("FRYP78910;INF2171,1111;2025,9,2;2025,10,2;32");
 
             pWriter.println("VASA65432;MAT4681,2222;2025,6,1;2025,7,1;20");
             pWriter.println("FRYP78910;MAT4681,2222;2025,6,3;2025,7,3;24");
@@ -371,7 +371,7 @@ public class CoursTest {
     @Test
     public void testNombreEtudiantsInscritsProgrammeTroisSessions2025() {
         assertTrue("Le test du nombre etudiants pour trois sessions a echoue.",
-                inscriptions.getNombreEtudiantsInscritsProgrammeTroisSessions(123,2025).intValue() == 1);
+                inscriptions.getNombreEtudiantsInscritsProgrammeTroisSessions(456,2025).intValue() == 1);
     }
 
     @Test
