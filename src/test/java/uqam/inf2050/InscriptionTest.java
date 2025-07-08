@@ -81,7 +81,7 @@ public class InscriptionTest {
 
             pWriter.println("INF1132;3333;32024;30;S222");
 
-            pWriter.println("INF2171;4444;12025;35;T111");
+            pWriter.println("INF2171;2222;12025;35;T111");
 
             pWriter.println("INF1070;3333;22025;23;T222");
             pWriter.println("INF2171;1111;22025;19;U111");
@@ -108,8 +108,8 @@ public class InscriptionTest {
             pWriter.println("BLAD11121;INF1132,3333;2024,6,1;2024,7,1;80");
             pWriter.println("VASA65432;INF1132,3333;2024,6,2;2024,7,2;82");
 
-            pWriter.println("BLAD11121;INF2171,4444;2025,1,2;2025,3,2;92");
-            pWriter.println("VASA65432;INF2171,4444;2025,1,3;2025,3,3;94");
+            pWriter.println("BLAD11121;INF2171,2222;2025,1,2;2025,3,2;92");
+            pWriter.println("VASA65432;INF2171,2222;2025,1,3;2025,3,3;94");
 
             pWriter.println("VASA65432;INF1070,3333;2025,9,1;2025,10,1;40");
             pWriter.println("FRYP78910;INF1070,3333;2025,9,2;2025,10,2;42");
@@ -407,6 +407,61 @@ public class InscriptionTest {
     @Test(expected = ArithmeticException.class)
     public void testDivisionParZero_ErreurAttendue() {
         int x = 1 / 0; // Devrait lancer ArithmeticException
+    }
+
+    // Tests pour méthode pour récupérer la liste des étudiants inscrits dans un groupe-cours
+    @Test
+    public void testEtudiantsInscritsGroupeCoursNotNull() {
+
+        assertNotNull("La liste des étudiants inscrits dans un groupe-cours ne doit pas être null",
+                inscriptions.getEtudiantsInscritsGroupeCours("INF2171", 12024, "R222"));
+    }
+
+    @Test
+    public void testEtudiantsInscritsGroupeCoursEqualsNombre() {
+        assertEquals("Nombre d'étudiants inscrits dans un groupe-cours est incorrect", 4,
+                inscriptions.getEtudiantsInscritsGroupeCours("INF2171", 12024, "R222").size());
+    }
+
+    @Test
+    public void testEtudiantsInscritsGroupeCoursEqualsNom() {
+        assertEquals("Le nom du premier étudiant ne correspond pas", "Vasquez",
+                inscriptions.getEtudiantsInscritsGroupeCours("INF2171", 12024, "R222").get(0).getNom());
+    }
+
+    @Test
+    public void testEtudiantsInscritsGroupeCoursSame() {
+        assertSame("L'étudiant que vous cherchez n'est pas identiques.",
+                inscriptions.getEtudiantsInscritsGroupeCours("INF2171", 12024, "R222").get(0),
+                etudiants.getEtudiant("VASA65432"));
+
+    }
+
+    // Tests pour méthode pour calculer le nombre d'étudiants inscrits, à date, à un groupe-cours
+    @Test
+    public void testNombreEtudiantsInscritsGroupeCoursNotNull() {
+        assertNotNull("La liste des étudiants inscrits dans un groupe-cours ne doit pas être null",
+                inscriptions.getNombreEtudiantsInscritsGroupeCours("INF2171", 12024, "R222"));
+    }
+
+    @Test
+    public void testNombreEtudiantsInscritsGroupeCoursNotSame() {
+        assertNotSame("Le nombre d'étudiants est identique au numéro d'étudiant",
+                inscriptions.getNombreEtudiantsInscritsGroupeCours("INF2171", 12024, "R222"),
+                etudiants.getEtudiant("ANDA12345"));
+    }
+
+    @Test
+    public void testNombreEtudiantsInscritsGroupeCoursTrue() {
+        assertTrue("Le nombre d'étudiants inscrits devrait être 4",
+                inscriptions.getNombreEtudiantsInscritsGroupeCours("INF2171", 12024, "R222").intValue() == 4);
+
+    }
+
+    @Test
+    public void testNombreEtudiantsInscritsGroupeCoursFalse() {
+        assertFalse("Le nombre d'étudiants inscrits ne devrait pas être 4",
+                inscriptions.getNombreEtudiantsInscritsGroupeCours("INF2171", 12024, "R222").intValue() == 5);
     }
 
     // S'exécute APRÈS chaque méthode de test
