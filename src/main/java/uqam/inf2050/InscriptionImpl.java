@@ -100,7 +100,6 @@ public class InscriptionImpl {
         return nbreEtudiants;
     }
 
-
     //Comparer deux années consécutives (par exemple 2023-2024 et 2024-2025) en termes du nombre
     //d'inscriptions à un programme
     public Number comparerNombreEtudiantsInscritsProgrammeDeuxAnneesConsecutives(Number codeProgramme, Number annee1, Number annee2) {
@@ -110,6 +109,27 @@ public class InscriptionImpl {
             getNombreEtudiantsInscritsProgrammeTroisSessions(codeProgramme, annee1).intValue();
 
         return  comparaison;
+    }
+
+    // Méthode pour récupérer la liste des étudiants inscrits dans un groupe-cours
+    public List<Etudiant> getEtudiantsInscritsGroupeCours(String sigle, Number codeSession, String local) {
+        List<Etudiant> etudiantsInscritsGroupeCours= new ArrayList<>();
+
+        for(Inscription i : inscriptions){
+            if(i.getGroupe().getCours().getSigle().equals(sigle) &&
+            i.getGroupe().getSession().getCodeSession().equals(codeSession) &&
+            i.getGroupe().getLocal().equals(local)){
+                etudiantsInscritsGroupeCours.add(i.getEtudiant());
+            }
+        }
+        return etudiantsInscritsGroupeCours;
+    }
+
+    // Méthode pour calculer le nombre d'étudiants inscrits, à date, à un groupe-cours
+    public Number getNombreEtudiantsInscritsGroupeCours(String sigle, Number codeSession, String local) {
+        List<Etudiant> nombreEtudiantsInscritsGroupeCours= getEtudiantsInscritsGroupeCours(sigle, codeSession, local);
+
+        return nombreEtudiantsInscritsGroupeCours.size();
     }
 
 }
