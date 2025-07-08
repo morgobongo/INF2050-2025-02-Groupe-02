@@ -81,7 +81,9 @@ public class GroupeCoursTest {
                 pWriter.println("INF1070;3333;22025;23;T222");
                 pWriter.println("INF2171;1111;22025;19;U111");
 
-                pWriter.println("MAT4681;2222;32025;32;U222");
+                pWriter.println("INF1070;1111;32025;25;R333");
+
+                pWriter.println("MAT4681;2222;32026;32;U222");
                 pWriter.close();
 
                 //Setup des inscriptions
@@ -91,6 +93,7 @@ public class GroupeCoursTest {
                 pWriter.println("ANDA12345;INF1070,1111;2024,1,1;2024,3,1;50");
                 pWriter.println("VASA65432;INF1070,1111;2024,1,2;2024,3,2;52");
                 pWriter.println("FRYP78910;INF1070,1111;2024,1,3;2024,3,3;54");
+                pWriter.println("ANDA12345;INF1070,1111;2025,6,1;2025,7,1;85");
 
                 pWriter.println("VASA65432;INF2171,4444;2024,1,2;2024,2,1;60");
                 pWriter.println("ANDA12345;INF2171,4444;2024,1,1;2024,3,2;62");
@@ -341,6 +344,8 @@ public class GroupeCoursTest {
             } catch (NumberFormatException e) {
                 System.out.println("Format invalide de donnée");
             }
+
+            groupesCours.setInscriptions(inscriptions.inscriptions);
         }
 
     private static Session getSession(String[] attributs) {
