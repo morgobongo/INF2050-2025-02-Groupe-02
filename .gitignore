@@ -112,3 +112,6 @@ buildNumber.properties
 # Eclipse (si jamais utilisé)
 .project
 .classpath
+
+# Fichiers CSV
+*.csv
