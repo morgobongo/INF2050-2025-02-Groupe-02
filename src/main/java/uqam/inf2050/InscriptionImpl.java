@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InscriptionImpl {
-    List<Inscription> inscriptions = new ArrayList<>();
+     List<Inscription> inscriptions = new ArrayList<>();
 
     // Méthode pour ajouter une inscription à la liste
     public void addInscription(Inscription ins) {
