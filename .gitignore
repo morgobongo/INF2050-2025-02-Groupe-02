@@ -1,104 +1,6 @@
-# Créé via https://www.toptal.com/developers/gitignore/api/macos,java,intellij,maven
-# Corrigé pour exclure correctement les fichiers IntelliJ, Maven, macOS
-
-### IntelliJ ###
-.idea/
-*.iml
-
-# User-specific stuff
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/**/usage.statistics.xml
-.idea/**/dictionaries
-.idea/**/shelf
-
-# AWS User-specific
-.idea/**/aws.xml
-
-# Generated files
-.idea/**/contentModel.xml
-
-# Sensitive or high-churn files
-.idea/**/dataSources/
-.idea/**/dataSources.ids
-.idea/**/dataSources.local.xml
-.idea/**/sqlDataSources.xml
-.idea/**/dynamic.xml
-.idea/**/uiDesigner.xml
-.idea/**/dbnavigator.xml
-
-# Gradle (inutile ici si tu n'utilises que Maven, mais conservé au cas où)
-.idea/**/gradle.xml
-.idea/**/libraries
-
-# IntelliJ fichiers de configuration fréquents
-.idea/artifacts
-.idea/compiler.xml
-.idea/jarRepositories.xml
-.idea/modules.xml
-.idea/misc.xml
-.idea/modules
-.idea/vcs.xml
-
-# Fichiers de cache ou spécifiques à des plugins
-.idea/**/mongoSettings.xml
-.idea/replstate.xml
-.idea/sonarlint/
-.idea/**/sonarIssues.xml
-.idea/**/markdown-navigator.xml
-.idea/**/markdown-navigator-enh.xml
-.idea/**/markdown-navigator/
-.idea/httpRequests
-.idea/caches/
-.idea/codestream.xml
-.idea/**/azureSettings.xml
-.idea/$CACHE_FILE$
-
-### Java ###
-*.class
-*.log
-
-# BlueJ files
-*.ctxt
-
-# J2ME
-.mtj.tmp/
-
-# Archives
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# JVM crash logs
-hs_err_pid*
-replay_pid*
-
-### macOS ###
-.DS_Store
-.AppleDouble
-.LSOverride
-Icon
-._*
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-*.icloud
-
-### Maven ###
-target/
+# Build Maven
+/target/
+.mvn/
 pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.versionsBackup
@@ -106,12 +8,18 @@ pom.xml.next
 release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
-.mvn/timing.properties
-.mvn/wrapper/maven-wrapper.jar
 
-# Eclipse (si jamais utilisé)
-.project
-.classpath
+# Classes compilées
+*.class
 
-# Fichiers CSV
+# Fichiers temporaires ou de log
+*.log
 *.csv
+
+# Configuration IntelliJ
+.idea/
+*.iml
+.idea/workspace.xml
+
+# macOS
+.DS_Store
