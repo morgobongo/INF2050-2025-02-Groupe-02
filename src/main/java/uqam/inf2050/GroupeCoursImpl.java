@@ -8,6 +8,10 @@ public class GroupeCoursImpl {
     List<GroupeCours> groupesCours = new ArrayList<>();
     List<Inscription> inscriptions = new ArrayList<>();
 
+    public void setInscriptions(List<Inscription> inscriptions) {
+        this.inscriptions = inscriptions;
+    }
+
     public void addGroupeCours(GroupeCours e) {groupesCours.add(e);}
 
     public GroupeCours getGroupeCours(String cours, Enseignant enseignant) {
