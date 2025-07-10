@@ -4,16 +4,39 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implémentation de la gestion des groupes de cours et de leurs inscriptions.
+ *
+ * @author Equipe 2
+ * @version 1.0
+ */
 public class GroupeCoursImpl {
     List<GroupeCours> groupesCours = new ArrayList<>();
     List<Inscription> inscriptions = new ArrayList<>();
 
+    /**
+     * Définit la liste des inscriptions.
+     *
+     * @param inscriptions la liste des inscriptions à définir
+     */
     public void setInscriptions(List<Inscription> inscriptions) {
         this.inscriptions = inscriptions;
     }
 
+    /**
+     * Ajoute un groupe de cours à la liste.
+     *
+     * @param e le groupe de cours à ajouter
+     */
     public void addGroupeCours(GroupeCours e) {groupesCours.add(e);}
 
+    /**
+     * Recherche un groupe de cours selon le sigle du cours et l'enseignant.
+     *
+     * @param cours le sigle du cours recherché
+     * @param enseignant l'enseignant responsable
+     * @return le groupe de cours correspondant, ou un nouveau groupe vide si non trouvé
+     */
     public GroupeCours getGroupeCours(String cours, Enseignant enseignant) {
         GroupeCours groupeCours  = new GroupeCours();
 
@@ -26,6 +49,12 @@ public class GroupeCoursImpl {
         return groupeCours;
     }
 
+    /**
+     * Récupère la liste des groupes de cours pour une session donnée.
+     *
+     * @param session la session recherchée
+     * @return la liste des groupes de cours de la session
+     */
     public List<GroupeCours> getGroupeCoursSession(String session) {
         List<GroupeCours> groupeCoursSession = new ArrayList<>();
 
@@ -37,6 +66,13 @@ public class GroupeCoursImpl {
         return groupeCoursSession;
     }
 
+    /**
+     * Récupère la liste des groupes de cours ayant un nombre maximal
+     * d'inscriptions donné.
+     *
+     * @param maxInscription le nombre maximal d'inscriptions recherché
+     * @return la liste des groupes de cours correspondants
+     */
     public List<GroupeCours> getGroupeCoursMaxInscription(Number maxInscription) {
         List<GroupeCours> groupeCoursMaxInscription = new ArrayList<>();
         for (GroupeCours g : groupesCours) {

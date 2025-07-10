@@ -4,14 +4,31 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implémentation de la gestion des inscriptions des étudiants aux groupes de cours.
+ *
+ * @author Equipe 2
+ * @version 1.0
+ */
 public class InscriptionImpl {
      List<Inscription> inscriptions = new ArrayList<>();
 
-    // Méthode pour ajouter une inscription à la liste
+    /**
+     * Ajoute une inscription à la liste.
+     *
+     * @param ins l'inscription à ajouter
+     */
     public void addInscription(Inscription ins) {
         inscriptions.add(ins);
     }
 
+    /**
+     * Calcule le code du programme avec le plus haut pourcentage
+     * d'inscriptions pour la session en cours.
+     *
+     * @return le code du programme avec le meilleur taux d'inscription,
+     *         ou null si aucune session en cours n'est trouvée
+     */
     public Number getProgrammePourcentageEleveSessionEnCours(){
         LocalDate maintenant = LocalDate.now();
         Number codeSessionEnCours = null;
@@ -77,8 +94,14 @@ public class InscriptionImpl {
         return meilleurProgramme;
     }
 
-    // Calculer le nombre total d'étudiants inscrits à un programme durant
-    // les trois sessions (automne, hiver, été) de l'année d'étude
+    /**
+     * Calcule le nombre total d'étudiants inscrits à un programme
+     * durant les trois sessions (automne, hiver, été) d'une année donnée.
+     *
+     * @param codeProgramme le code du programme
+     * @param anneeEtude l'année d'étude
+     * @return le nombre total d'étudiants inscrits dans l'année
+     */
     public Number getNombreEtudiantsInscritsProgrammeTroisSessions
             (Number codeProgramme, Number anneeEtude) {
         LocalDate dateSessionAutomne = LocalDate.of(anneeEtude.intValue(), 9, 1);
@@ -100,8 +123,15 @@ public class InscriptionImpl {
         return nbreEtudiants;
     }
 
-    //Comparer deux années consécutives (par exemple 2023-2024 et 2024-2025) en termes du nombre
-    //d'inscriptions à un programme
+    /**
+     * Compare le nombre d'étudiants inscrits à un programme entre
+     * deux années consécutives.
+     *
+     * @param codeProgramme le code du programme
+     * @param annee1 la première année
+     * @param annee2 la deuxième année
+     * @return la différence du nombre d'inscriptions entre annee2 et annee1
+     */
     public Number comparerNombreEtudiantsInscritsProgrammeDeuxAnneesConsecutives(Number codeProgramme, Number annee1, Number annee2) {
         Number comparaison = 0;
 
@@ -111,7 +141,15 @@ public class InscriptionImpl {
         return  comparaison;
     }
 
-    // Méthode pour récupérer la liste des étudiants inscrits dans un groupe-cours
+    /**
+     * Récupère la liste des étudiants inscrits dans un groupe-cours
+     * donné selon le sigle, le code de session et le local.
+     *
+     * @param sigle le sigle du cours
+     * @param codeSession le code de la session
+     * @param local le local du groupe-cours
+     * @return la liste des étudiants inscrits correspondant aux critères
+     */
     public List<Etudiant> getEtudiantsInscritsGroupeCours(String sigle, Number codeSession, String local) {
         List<Etudiant> etudiantsInscritsGroupeCours= new ArrayList<>();
 
@@ -125,7 +163,15 @@ public class InscriptionImpl {
         return etudiantsInscritsGroupeCours;
     }
 
-    // Méthode pour calculer le nombre d'étudiants inscrits, à date, à un groupe-cours
+    /**
+     * Calcule le nombre d'étudiants inscrits, à date, dans un groupe-cours
+     * donné selon le sigle, le code de session et le local.
+     *
+     * @param sigle le sigle du cours
+     * @param codeSession le code de la session
+     * @param local le local du groupe-cours
+     * @return le nombre d'étudiants inscrits
+     */
     public Number getNombreEtudiantsInscritsGroupeCours(String sigle, Number codeSession, String local) {
         List<Etudiant> nombreEtudiantsInscritsGroupeCours= getEtudiantsInscritsGroupeCours(sigle, codeSession, local);
 
