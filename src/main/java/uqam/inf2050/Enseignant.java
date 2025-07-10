@@ -8,8 +8,17 @@ package uqam.inf2050;
  */
 public class Enseignant {
 
+    /**
+     * Attribut code de l'enseignant.
+     */
     private String codeEnseignant;
+    /**
+     * Attribut nom de l'enseignant.
+     */
     private String nom;
+    /**
+     * Attribut prenom de l'enseignant.
+     */
     private String prenom;
 
     // ======== Getters ========
@@ -46,27 +55,29 @@ public class Enseignant {
     /**
      * Définit le code de l'enseignant.
      *
-     * @param codeEnseignant le code unique à définir
+     * @param nouveauCodeEnseignant le code unique à définir
      */
-    public void setCodeEnseignant(String codeEnseignant) {
-        this.codeEnseignant = codeEnseignant;
+    public void setCodeEnseignant(final String nouveauCodeEnseignant) {
+
+        this.codeEnseignant = nouveauCodeEnseignant;
     }
 
     /**
      * Définit le nom de l'enseignant.
      *
-     * @param nom le nom de famille à définir
+     * @param nouveauNom le nom de famille à définir
      */
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setNom(final String nouveauNom) {
+
+        this.nom = nouveauNom;
     }
 
     /**
      * Définit le prenom de l'enseignant.
      *
-     * @param prenom le prenom à définir
+     * @param nouveauPrenom le prenom à définir
      */
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
+    public void setPrenom(final String nouveauPrenom) {
+        this.prenom = nouveauPrenom;
     }
 }

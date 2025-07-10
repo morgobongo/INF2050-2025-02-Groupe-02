@@ -5,20 +5,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Implémentation de la gestion des inscriptions des étudiants aux groupes de cours.
+ * Implémentation de la gestion des inscriptions des
+ * étudiants aux groupes de cours.
  *
  * @author Equipe 2
  * @version 1.0
  */
 public class InscriptionImpl {
-     List<Inscription> inscriptions = new ArrayList<>();
+    /**
+     * Constante du mois de debut de la session d'automne.
+     */
+    public static final int MOIS_AUTOMNE = 9;
+
+    /**
+     * Attribut liste d'inscriptions.
+     */
+    private List<Inscription> inscriptions = new ArrayList<>();
+
+    /**
+     * Retourne la liste des inscriptions.
+     *
+     * @return la liste des inscriptions
+     */
+    public List<Inscription> getInscriptions() {
+        return inscriptions;
+    }
 
     /**
      * Ajoute une inscription à la liste.
      *
      * @param ins l'inscription à ajouter
      */
-    public void addInscription(Inscription ins) {
+    public void addInscription(final Inscription ins) {
         inscriptions.add(ins);
     }
 
@@ -29,14 +47,16 @@ public class InscriptionImpl {
      * @return le code du programme avec le meilleur taux d'inscription,
      *         ou null si aucune session en cours n'est trouvée
      */
-    public Number getProgrammePourcentageEleveSessionEnCours(){
+    public Number getProgrammePourcentageEleveSessionEnCours() {
         LocalDate maintenant = LocalDate.now();
         Number codeSessionEnCours = null;
 
-        // 1. Trouver une session en cours (la première trouvée dans les inscriptions)
+        // 1. Trouver une session en cours
+        // (la première trouvée dans les inscriptions)
         for (int i = 0; i < inscriptions.size(); i++) {
             Session s = inscriptions.get(i).getGroupe().getSession();
-            boolean sessionEnCours = !maintenant.isBefore(s.getDateDebut()) && !maintenant.isAfter(s.getDateFin());
+            boolean sessionEnCours = !maintenant.isBefore(s.getDateDebut())
+                    && !maintenant.isAfter(s.getDateFin());
 
             if (codeSessionEnCours == null && sessionEnCours) {
                 codeSessionEnCours = s.getCodeSession();
@@ -55,7 +75,8 @@ public class InscriptionImpl {
             GroupeCours gc = ins.getGroupe();
             Session session = gc.getSession();
 
-            boolean memeSession = session.getCodeSession().equals(codeSessionEnCours);
+            boolean memeSession =
+                    session.getCodeSession().equals(codeSessionEnCours);
 
             if (memeSession) {
                 Number codeProgramme = ins.getEtudiant().getCodeProgramme();
@@ -85,7 +106,7 @@ public class InscriptionImpl {
 
             if (tauxValide) {
                 double taux = (double) inscrits / max;
-                if(taux > meilleurTaux) {
+                if (taux > meilleurTaux) {
                     meilleurTaux = taux;
                     meilleurProgramme = programmes.get(i);
                 }
@@ -102,16 +123,19 @@ public class InscriptionImpl {
      * @param anneeEtude l'année d'étude
      * @return le nombre total d'étudiants inscrits dans l'année
      */
-    public Number getNombreEtudiantsInscritsProgrammeTroisSessions
-            (Number codeProgramme, Number anneeEtude) {
-        LocalDate dateSessionAutomne = LocalDate.of(anneeEtude.intValue(), 9, 1);
+    public Number getNombreEtudiantsInscritsProgrammeTroisSessions(
+            final Number codeProgramme, final Number anneeEtude) {
+        LocalDate dateSessionAutomne =
+                LocalDate.of(anneeEtude.intValue(), MOIS_AUTOMNE, 1);
         ArrayList<Etudiant> etudiants = new ArrayList<>();
         Number nbreEtudiants = 0;
 
         for (Inscription i:inscriptions) {
-            if(i.getEtudiant().getCodeProgramme().equals(codeProgramme)
-            && (i.getDateInscription().isEqual(dateSessionAutomne) || i.getDateInscription().isAfter(dateSessionAutomne))
-            && i.getDateInscription().isBefore(dateSessionAutomne.plusYears(1))) {
+            if (i.getEtudiant().getCodeProgramme().equals(codeProgramme)
+            && (i.getDateInscription().isEqual(dateSessionAutomne)
+                    || i.getDateInscription().isAfter(dateSessionAutomne))
+            && i.getDateInscription().isBefore(
+                    dateSessionAutomne.plusYears(1))) {
                 if (!etudiants.contains(i.getEtudiant())) {
                 etudiants.add(i.getEtudiant());
                 }
@@ -132,11 +156,15 @@ public class InscriptionImpl {
      * @param annee2 la deuxième année
      * @return la différence du nombre d'inscriptions entre annee2 et annee1
      */
-    public Number comparerNombreEtudiantsInscritsProgrammeDeuxAnneesConsecutives(Number codeProgramme, Number annee1, Number annee2) {
+    public Number comparerNombreEtudiantsInscritsProgrammeDeuxAnsConsecutives(
+            final Number codeProgramme, final Number annee1,
+            final Number annee2) {
         Number comparaison = 0;
 
-        comparaison = getNombreEtudiantsInscritsProgrammeTroisSessions(codeProgramme, annee2).intValue() -
-            getNombreEtudiantsInscritsProgrammeTroisSessions(codeProgramme, annee1).intValue();
+        comparaison = getNombreEtudiantsInscritsProgrammeTroisSessions(
+                codeProgramme, annee2).intValue()
+                - getNombreEtudiantsInscritsProgrammeTroisSessions(
+                        codeProgramme, annee1).intValue();
 
         return  comparaison;
     }
@@ -150,13 +178,15 @@ public class InscriptionImpl {
      * @param local le local du groupe-cours
      * @return la liste des étudiants inscrits correspondant aux critères
      */
-    public List<Etudiant> getEtudiantsInscritsGroupeCours(String sigle, Number codeSession, String local) {
-        List<Etudiant> etudiantsInscritsGroupeCours= new ArrayList<>();
+    public List<Etudiant> getEtudiantsInscritsGroupeCours(
+            final String sigle, final Number codeSession, final String local) {
+        List<Etudiant> etudiantsInscritsGroupeCours = new ArrayList<>();
 
-        for(Inscription i : inscriptions){
-            if(i.getGroupe().getCours().getSigle().equals(sigle) &&
-            i.getGroupe().getSession().getCodeSession().equals(codeSession) &&
-            i.getGroupe().getLocal().equals(local)){
+        for (Inscription i : inscriptions) {
+            if (i.getGroupe().getCours().getSigle().equals(sigle)
+                    && i.getGroupe().getSession().getCodeSession().equals(
+                            codeSession)
+                    && i.getGroupe().getLocal().equals(local)) {
                 etudiantsInscritsGroupeCours.add(i.getEtudiant());
             }
         }
@@ -172,8 +202,10 @@ public class InscriptionImpl {
      * @param local le local du groupe-cours
      * @return le nombre d'étudiants inscrits
      */
-    public Number getNombreEtudiantsInscritsGroupeCours(String sigle, Number codeSession, String local) {
-        List<Etudiant> nombreEtudiantsInscritsGroupeCours= getEtudiantsInscritsGroupeCours(sigle, codeSession, local);
+    public Number getNombreEtudiantsInscritsGroupeCours(
+            final String sigle, final Number codeSession, final String local) {
+        List<Etudiant> nombreEtudiantsInscritsGroupeCours
+                = getEtudiantsInscritsGroupeCours(sigle, codeSession, local);
 
         return nombreEtudiantsInscritsGroupeCours.size();
     }

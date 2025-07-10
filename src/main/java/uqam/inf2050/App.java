@@ -4,10 +4,11 @@ package uqam.inf2050;
  * Hello world!
  *
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+public final class App {
+    /**
+     * Constructeur privé pour empêcher l'instanciation.
+     */
+    private App() {
+        // Constructeur privé
     }
 }

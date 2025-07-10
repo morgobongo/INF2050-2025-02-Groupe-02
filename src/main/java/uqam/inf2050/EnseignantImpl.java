@@ -11,14 +11,19 @@ import java.util.List;
  */
 public class EnseignantImpl {
 
-    List<Enseignant> enseignants = new ArrayList<>();
+    /**
+     * Attribut liste d'enseignants.
+     */
+    private List<Enseignant> enseignants = new ArrayList<>();
 
     /**
      * Ajoute un enseignant à la liste.
      *
      * @param e l'enseignant à ajouter
      */
-    public void addEnseignant(Enseignant e) {enseignants.add(e);}
+    public void addEnseignant(final Enseignant e) {
+        enseignants.add(e);
+    }
 
     /**
      * Recherche un enseignant par son code.
@@ -26,7 +31,7 @@ public class EnseignantImpl {
      * @param codeEnseignant le code de l'enseignant recherché
      * @return l'enseignant correspondant, ou Enseignant vide si non trouvé
      */
-    public Enseignant getEnseignant(String codeEnseignant) {
+    public Enseignant getEnseignant(final String codeEnseignant) {
         Enseignant enseignant = new Enseignant();
 
         for (Enseignant e : enseignants) {

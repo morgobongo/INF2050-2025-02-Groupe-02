@@ -11,14 +11,19 @@ import java.util.List;
  * @version 1.0
  */
 public class SessionImpl {
-    List<Session> sessions = new ArrayList<>();
+    /**
+     * Attribut liste de sessions.
+     */
+    private List<Session> sessions = new ArrayList<>();
 
     /**
      * Ajoute une session à la liste.
      *
      * @param e la session à ajouter
      */
-    public void addSession(Session e) {sessions.add(e);}
+    public void addSession(final Session e) {
+        sessions.add(e);
+    }
 
     /**
      * Recherche une session à partir de son code.
@@ -26,7 +31,7 @@ public class SessionImpl {
      * @param codeSession le code de la session recherché
      * @return la session correspondante, ou une Session vide si non trouvée
      */
-    public Session getSession(Number codeSession) {
+    public Session getSession(final Number codeSession) {
         Session session = new Session();
 
         for (Session s : sessions) {
@@ -42,9 +47,10 @@ public class SessionImpl {
      * Recherche une session à partir de sa date de début.
      *
      * @param dateDebut la date de début de la session recherchée
-     * @return la session correspondante, ou une nouvelle session vide si non trouvée
+     * @return la session correspondante,
+     *          ou une nouvelle session vide si non trouvée
      */
-    public Session getSessionDate(LocalDate dateDebut) {
+    public Session getSessionDate(final LocalDate dateDebut) {
         Session session = new Session();
 
         for (Session s : sessions) {

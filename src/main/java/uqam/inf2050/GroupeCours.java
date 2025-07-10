@@ -9,10 +9,25 @@ package uqam.inf2050;
  */
 public class GroupeCours {
 
+    /**
+     * Attribut cours.
+     */
     private Cours cours;
+    /**
+     * Attribut enseignant.
+     */
     private Enseignant enseignant;
+    /**
+     * Attribut session.
+     */
     private Session session;
+    /**
+     * Attribut maximum d'inscription.
+     */
     private Number maxInscription;
+    /**
+     * Attribut local.
+     */
     private String local;
 
     // ======== Getters ========
@@ -67,45 +82,45 @@ public class GroupeCours {
     /**
      * Définit le cours associé à ce groupe.
      *
-     * @param cours le cours à définir
+     * @param nouveauCours le cours à définir
      */
-    public void setCours(Cours cours) {
-        this.cours = cours;
+    public void setCours(final Cours nouveauCours) {
+        this.cours = nouveauCours;
     }
 
     /**
      * Définit l'enseignant responsable de ce groupe.
      *
-     * @param enseignant l'enseignant à définir
+     * @param nouvelEnseignant l'enseignant à définir
      */
-    public void setEnseignant(Enseignant enseignant) {
-        this.enseignant = enseignant;
+    public void setEnseignant(final Enseignant nouvelEnseignant) {
+        this.enseignant = nouvelEnseignant;
     }
 
     /**
      * Définit la session durant laquelle ce groupe est offert.
      *
-     * @param session la session à définir
+     * @param nouvelleSession la session à définir
      */
-    public void setSession(Session session) {
-        this.session = session;
+    public void setSession(final Session nouvelleSession) {
+        this.session = nouvelleSession;
     }
 
     /**
      * Définit le nombre maximal d'inscriptions autorisé.
      *
-     * @param maxInscription le nombre maximal à définir
+     * @param nouveauMaxInscription le nombre maximal à définir
      */
-    public void setMaxInscription(Number maxInscription) {
-        this.maxInscription = maxInscription;
+    public void setMaxInscription(final Number nouveauMaxInscription) {
+        this.maxInscription = nouveauMaxInscription;
     }
 
     /**
      * Définit le local où se tiennent les cours.
      *
-     * @param local le local à définir
+     * @param nouveauLocal le local à définir
      */
-    public void setLocal(String local) {
-        this.local = local;
+    public void setLocal(final String nouveauLocal) {
+        this.local = nouveauLocal;
     }
 }

@@ -10,8 +10,17 @@ import java.time.LocalDate;
  * @version 1.0
  */
 public class Session {
+    /**
+     * Attribut code de session.
+     */
     private Number codeSession;
+    /**
+     * Attribut date de debut.
+     */
     private LocalDate dateDebut;
+    /**
+     * Attribut date de fin.
+     */
     private LocalDate dateFin;
 
     // ======== Getters ========
@@ -48,27 +57,27 @@ public class Session {
     /**
      * Définit le code de la session.
      *
-     * @param codeSession le code à définir
+     * @param nouveauCodeSession le code à définir
      */
-    public void setCodeSession(Number codeSession) {
-        this.codeSession = codeSession;
+    public void setCodeSession(final Number nouveauCodeSession) {
+        this.codeSession = nouveauCodeSession;
     }
 
     /**
      * Définit la date de début de la session.
      *
-     * @param dateDebut la date à définir
+     * @param nouvelleDateDebut la date à définir
      */
-    public void setDateDebut(LocalDate dateDebut) {
-        this.dateDebut = dateDebut;
+    public void setDateDebut(final LocalDate nouvelleDateDebut) {
+        this.dateDebut = nouvelleDateDebut;
     }
 
     /**
      * Définit la date de fin de la session.
      *
-     * @param dateFin la date à définir
+     * @param nouvelleDateFin la date à définir
      */
-    public void setDateFin(LocalDate dateFin) {
-        this.dateFin = dateFin;
+    public void setDateFin(final LocalDate nouvelleDateFin) {
+        this.dateFin = nouvelleDateFin;
     }
 }

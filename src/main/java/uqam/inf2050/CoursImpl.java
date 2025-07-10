@@ -10,22 +10,28 @@ import java.util.List;
  * @version 1.0
  */
 public class CoursImpl {
-    List<Cours> cours = new ArrayList<>();
+    /**
+     * Attribut liste de cours.
+     */
+    private List<Cours> cours = new ArrayList<>();
 
     /**
      * Ajoute un cours à la liste.
      *
      * @param e le cours à ajouter
      */
-    public void addCours(Cours e) {cours.add(e);}
+    public void addCours(final Cours e) {
+        cours.add(e);
+    }
 
     /**
      * Recherche un cours à partir de son sigle.
      *
      * @param sigle le sigle du cours recherché
-     * @return le cours correspondant au sigle, ou un cours vide s'il n'est pas trouvé
+     * @return le cours correspondant au sigle, ou un cours vide
+     *          s'il n'est pas trouvé
      */
-    public Cours getcours(String sigle) {
+    public Cours getcours(final String sigle) {
         Cours cour = new Cours();
 
         for (Cours c : cours) {

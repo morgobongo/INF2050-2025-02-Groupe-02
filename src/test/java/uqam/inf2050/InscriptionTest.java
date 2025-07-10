@@ -395,13 +395,13 @@ public class InscriptionTest {
     @Test
     public void testComparaisonDeuxAnneesInscriptionsProg123() {
         assertFalse("Le test de comparaison de deux annees a echoue",
-                inscriptions.comparerNombreEtudiantsInscritsProgrammeDeuxAnneesConsecutives(123,2024,2025).equals(0));
+                inscriptions.comparerNombreEtudiantsInscritsProgrammeDeuxAnsConsecutives(123,2024,2025).equals(0));
     }
 
     @Test
     public void testComparaisonDeuxAnneesInscriptionsProg456() {
         assertEquals("Le test de comparaison de deux annees a echoue", 0,
-                inscriptions.comparerNombreEtudiantsInscritsProgrammeDeuxAnneesConsecutives(456,2024,2025));
+                inscriptions.comparerNombreEtudiantsInscritsProgrammeDeuxAnsConsecutives(456,2024,2025));
     }
 
     @Test(expected = ArithmeticException.class)

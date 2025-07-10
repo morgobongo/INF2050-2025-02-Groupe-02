@@ -9,10 +9,25 @@ import java.time.LocalDate;
  * @version 1.0
  */
 public class Inscription {
+    /**
+     * Attribut etudiant.
+     */
     private Etudiant etudiant;
+    /**
+     * Attribut groupe-cours.
+     */
     private GroupeCours groupe;
+    /**
+     * Attribut date d'inscription.
+     */
     private LocalDate dateInscription;
+    /**
+     * Attribut date d'abandon.
+     */
     private LocalDate dateAbandon;
+    /**
+     * Attribut note.
+     */
     private Number note;
 
     // ======== Getters ========
@@ -45,7 +60,7 @@ public class Inscription {
     }
 
     /**
-     * Retourne la date d'abandon
+     * Retourne la date d'abandon.
      *
      * @return la date d'abandon
      */
@@ -66,45 +81,45 @@ public class Inscription {
     /**
      * Définit l'étudiant inscrit.
      *
-     * @param etudiant l'étudiant à définir
+     * @param nouvelEtudiant l'étudiant à définir
      */
-    public void setEtudiant(Etudiant etudiant) {
-        this.etudiant = etudiant;
+    public void setEtudiant(final Etudiant nouvelEtudiant) {
+        this.etudiant = nouvelEtudiant;
     }
 
     /**
      * Définit le groupe cours.
      *
-     * @param groupe le groupe cours à définir
+     * @param nouveauGroupe le groupe cours à définir
      */
-    public void setGroupe(GroupeCours groupe) {
-        this.groupe = groupe;
+    public void setGroupe(final GroupeCours nouveauGroupe) {
+        this.groupe = nouveauGroupe;
     }
 
     /**
      * Définit la date d'inscription.
      *
-     * @param dateInscription la date à définir
+     * @param nouvelleDateInscription la date à définir
      */
-    public void setDateInscription(LocalDate dateInscription) {
-        this.dateInscription = dateInscription;
+    public void setDateInscription(final LocalDate nouvelleDateInscription) {
+        this.dateInscription = nouvelleDateInscription;
     }
 
     /**
      * Définit la date d'abandon.
      *
-     * @param dateAbandon la date à définir
+     * @param nouvelleDateAbandon la date à définir
      */
-    public void setDateAbandon(LocalDate dateAbandon) {
-        this.dateAbandon = dateAbandon;
+    public void setDateAbandon(final LocalDate nouvelleDateAbandon) {
+        this.dateAbandon = nouvelleDateAbandon;
     }
 
     /**
      * Définit la note obtenue.
      *
-     * @param note la note à définir
+     * @param nouvelleNote la note à définir
      */
-    public void setNote(Number note) {
-        this.note = note;
+    public void setNote(final Number nouvelleNote) {
+        this.note = nouvelleNote;
     }
 }

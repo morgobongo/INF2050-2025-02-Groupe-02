@@ -10,9 +10,21 @@ package uqam.inf2050;
 
 public class Cours {
 
+    /**
+     * Attribut sigle.
+     */
     private String sigle;
+    /**
+     * Attribut titre du cours.
+     */
     private String titre;
+    /**
+     * Attribut description.
+     */
     private String description;
+    /**
+     * Attribut nombre de credits.
+     */
     private String nbCredits;
 
     // ======== Getters ========
@@ -58,37 +70,38 @@ public class Cours {
     /**
      * Définit le sigle du cours.
      *
-     * @param sigle le sigle à définir
+     * @param nouveauSigle le sigle à définir
      */
-    public void setSigle(String sigle) {
-        this.sigle = sigle;
+    public void setSigle(final String nouveauSigle) {
+        this.sigle = nouveauSigle;
     }
 
     /**
      * Définit le titre du cours.
      *
-     * @param titre le titre à définir
+     * @param nouveauTitre le titre à définir
      */
-    public void setTitre(String titre) {
-        this.titre = titre;
+    public void setTitre(final String nouveauTitre) {
+        this.titre = nouveauTitre;
     }
 
     /**
      * Définit la description du cours.
      *
-     * @param description la description à définir
+     * @param nouvelleDescription la description à définir
      */
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescription(final String nouvelleDescription) {
+        this.description = nouvelleDescription;
     }
 
     /**
      * Définit le nombre de crédits du cours.
      *
-     * @param nbCredits le nombre de crédits à définir (en chaîne de caractères)
+     * @param nouveauNbCredits le nombre de crédits à définir
+     *                         (en chaîne de caractères)
      */
-    public void setNbCredits(String nbCredits) {
-        this.nbCredits = nbCredits;
+    public void setNbCredits(final String nouveauNbCredits) {
+        this.nbCredits = nouveauNbCredits;
     }
 }
 

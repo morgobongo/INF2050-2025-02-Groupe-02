@@ -345,7 +345,7 @@ public class GroupeCoursTest {
                 System.out.println("Format invalide de donnée");
             }
 
-            groupesCours.setInscriptions(inscriptions.inscriptions);
+            groupesCours.setInscriptions(inscriptions.getInscriptions());
         }
 
     private static Session getSession(String[] attributs) {

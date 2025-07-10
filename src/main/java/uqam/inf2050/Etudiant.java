@@ -9,9 +9,21 @@ package uqam.inf2050;
  */
 public class Etudiant {
 
+    /**
+     * Attribut code permanent.
+     */
     private String codePermanent;
+    /**
+     * Attribut nom.
+     */
     private String nom;
+    /**
+     * Attribut prenom.
+     */
     private String prenom;
+    /**
+     * Attribut code du programme.
+     */
     private Number codeProgramme;
 
     // ======== Getters ========
@@ -57,36 +69,36 @@ public class Etudiant {
     /**
      * Définit le code permanent de l'étudiant.
      *
-     * @param codePermanent le code permanent à définir
+     * @param nouveauCodePermanent le code permanent à définir
      */
-    public void setCodePermanent(String codePermanent) {
-        this.codePermanent = codePermanent;
+    public void setCodePermanent(final String nouveauCodePermanent) {
+        this.codePermanent = nouveauCodePermanent;
     }
 
     /**
      * Définit le nom de l'étudiant.
      *
-     * @param nom le nom de famille à définir
+     * @param nouveauNom le nom de famille à définir
      */
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setNom(final String nouveauNom) {
+        this.nom = nouveauNom;
     }
 
     /**
      * Définit le prénom de l'étudiant.
      *
-     * @param prenom le prénom à définir
+     * @param nouveauPrenom le prénom à définir
      */
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
+    public void setPrenom(final String nouveauPrenom) {
+        this.prenom = nouveauPrenom;
     }
 
     /**
      * Définit le code du programme d'études de l'étudiant.
      *
-     * @param codeProgramme le code du programme à définir
+     * @param nouveauCodeProgramme le code du programme à définir
      */
-    public void setCodeProgramme(Number codeProgramme) {
-        this.codeProgramme = codeProgramme;
+    public void setCodeProgramme(final Number nouveauCodeProgramme) {
+        this.codeProgramme = nouveauCodeProgramme;
     }
 }
