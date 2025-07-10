@@ -425,21 +425,6 @@ public class GroupeCoursTest {
         assertTrue("La liste devrait être vide pour code null", result.isEmpty());
     }
 
-    @Test
-    public void testAssertionsDiverses() {
-        Object a = new Object();
-        Object b = new Object();
-        Object c = a;
-
-        assertNotNull("Objet ne doit pas être null", a);
-        assertSame("Références identiques", a, c);
-        assertNotSame("Références différentes", a, b);
-        assertTrue("Doit être vrai", 5 > 2);
-        assertFalse("Doit être faux", 2 > 5);
-        assertNotEquals("Valeurs différentes", 10, 5);
-        assertArrayEquals("Tableaux identiques", new int[]{1, 2}, new int[]{1, 2});
-    }
-
     // S'exécute APRÈS chaque méthode de test
     @After
     public void tearDown() {

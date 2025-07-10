@@ -156,9 +156,9 @@ public class InscriptionImpl {
      * @param annee2 la deuxième année
      * @return la différence du nombre d'inscriptions entre annee2 et annee1
      */
-    public Number comparerNombreEtudiantsInscritsProgrammeDeuxAnsConsecutives(
+    public Number comparerNombreEtudiantsInscritsProgrammeDeuxAnsConsecutives (
             final Number codeProgramme, final Number annee1,
-            final Number annee2) {
+            final Number annee2) throws NullPointerException {
         Number comparaison = 0;
 
         comparaison = getNombreEtudiantsInscritsProgrammeTroisSessions(

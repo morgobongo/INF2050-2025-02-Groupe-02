@@ -101,4 +101,13 @@ public class Etudiant {
     public void setCodeProgramme(final Number nouveauCodeProgramme) {
         this.codeProgramme = nouveauCodeProgramme;
     }
+
+    /**
+     * Affiche le nom de l'etudiant.
+     *
+     * @return le prenom et le nom de l'etudiant
+     */
+    public String toString() {
+        return getPrenom() + " " + getNom();
+    }
 }

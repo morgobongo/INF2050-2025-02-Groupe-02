@@ -16,6 +16,15 @@ public class EtudiantImpl {
     private List<Etudiant> etudiants = new ArrayList<>();
 
     /**
+     * Retourne la liste des etudiants.
+     *
+     * @return la liste des etudiants
+     */
+    public List<Etudiant> getEtudiants() {
+        return etudiants;
+    }
+
+    /**
      * Ajoute un étudiant à la liste.
      *
      * @param e l'étudiant à ajouter

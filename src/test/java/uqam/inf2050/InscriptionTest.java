@@ -8,10 +8,12 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 //Librairies jUnit
 import org.junit.*;
 import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
 
 public class InscriptionTest {
 
@@ -34,10 +36,10 @@ public class InscriptionTest {
             //Setup des etudiants
             pWriter = new PrintWriter((new PrintWriter("EtudiantsTest.csv")));
             pWriter.println("Code Permanent;Nom;Prenom;Code Programme");
-            pWriter.println("ANDA12345;Andrews;Archie;123");
             pWriter.println("VASA65432;Vasquez;Alexandra;456");
-            pWriter.println("FRYP78910;Fry;Philip;789");
+            pWriter.println("ANDA12345;Andrews;Archie;123");
             pWriter.println("BLAD11121;Blake;Daphne;123");
+            pWriter.println("FRYP78910;Fry;Philip;789");
             pWriter.close();
 
             //Setup des cours
@@ -387,9 +389,17 @@ public class InscriptionTest {
     }
 
     @Test
-    public void testNombreEtudiantsInscritsProgrammeTroisSessions2025() {
+    public void testNombreEtudiantsInscritsProgrammeTroisSessions2025Vrai() {
         assertTrue("Le test du nombre etudiants pour trois sessions a echoue.",
                 inscriptions.getNombreEtudiantsInscritsProgrammeTroisSessions(456,2025).intValue() == 1);
+    }
+
+    @Test
+    public void testNombreEtudiantsInscritsProgrammeTroisSessions2025That() {
+        int valeurTest = 0;
+        assertThat("Le test du nombre etudiants pour trois sessions a echoue.",
+                inscriptions.getNombreEtudiantsInscritsProgrammeTroisSessions(123,2025).intValue(),
+                is(valeurTest));
     }
 
     @Test
@@ -404,15 +414,21 @@ public class InscriptionTest {
                 inscriptions.comparerNombreEtudiantsInscritsProgrammeDeuxAnsConsecutives(456,2024,2025));
     }
 
-    @Test(expected = ArithmeticException.class)
-    public void testDivisionParZero_ErreurAttendue() {
-        int x = 1 / 0; // Devrait lancer ArithmeticException
+    @Test (expected = NullPointerException.class)
+    public void testComparaisonDeuxAnneesInscriptionsProg456Exception() {
+        inscriptions.comparerNombreEtudiantsInscritsProgrammeDeuxAnsConsecutives(456,null,2025);
+    }
+
+    @Test
+    public void testComparaisonDeuxAnneesInscriptionsProg123Throws() {
+        assertThrows("Le test ne renvoi pas null", NullPointerException.class,
+                () -> inscriptions.comparerNombreEtudiantsInscritsProgrammeDeuxAnsConsecutives(123,2024,null));
+
     }
 
     // Tests pour méthode pour récupérer la liste des étudiants inscrits dans un groupe-cours
     @Test
     public void testEtudiantsInscritsGroupeCoursNotNull() {
-
         assertNotNull("La liste des étudiants inscrits dans un groupe-cours ne doit pas être null",
                 inscriptions.getEtudiantsInscritsGroupeCours("INF2171", 12024, "R222"));
     }
@@ -425,8 +441,8 @@ public class InscriptionTest {
 
     @Test
     public void testEtudiantsInscritsGroupeCoursEqualsNom() {
-        assertEquals("Le nom du premier étudiant ne correspond pas", "Vasquez",
-                inscriptions.getEtudiantsInscritsGroupeCours("INF2171", 12024, "R222").get(0).getNom());
+        assertArrayEquals("Le nom du premier étudiant ne correspond pas", etudiants.getEtudiants().toArray(),
+                inscriptions.getEtudiantsInscritsGroupeCours("INF2171", 12024, "R222").toArray());
     }
 
     @Test
@@ -446,9 +462,8 @@ public class InscriptionTest {
 
     @Test
     public void testNombreEtudiantsInscritsGroupeCoursNotSame() {
-        assertNotSame("Le nombre d'étudiants est identique au numéro d'étudiant",
-                inscriptions.getNombreEtudiantsInscritsGroupeCours("INF2171", 12024, "R222"),
-                etudiants.getEtudiant("ANDA12345"));
+        assertNotSame("Le nombre d'étudiants est identique au numéro d'étudiant", 0,
+                inscriptions.getNombreEtudiantsInscritsGroupeCours("INF2171", 12024, "R222"));
     }
 
     @Test
